@@ -1,0 +1,24 @@
+{
+  "name": "rentals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.4",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "fawn": "^2.1.5",
+    "joi": "^17.4.0",
+    "joi-objectid": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.2.18",
+    "winston": "^2.4.0"
+  }
+}
