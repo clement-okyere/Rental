@@ -1,4 +1,5 @@
 require('express-async-errors')
+require('winston-mongodb')
 const winston = require('winston')
 const config = require('config')
 const express = require('express')
@@ -12,7 +13,18 @@ const users = require('./routes/user');
 const auth = require('./routes/auth');
 const error = require('./middleware/error')
 
-winston.add(winston.transports.File, {filename: 'logfile.log'})
+
+process.on('uncaughtException', (err) => {
+  console.log('WE GOT AN UNCAUGHT EXCEPTION')
+})
+
+winston.add(winston.transports.File, { filename: 'logfile.log' })
+winston.add(winston.transports.MongoDB,
+  {
+    db: 'mongodb://localhost/playground',
+    level: 'error'
+  }
+)
 
 if (!config.get('jwtPrivateKey')) {
   console.error('FATAL ERROR jwtPrivateKey is not defined')
@@ -38,4 +50,5 @@ const PORT = process.env.PORT || 3000
 app.listen(3000, () => {
   console.log(`listening on port ${PORT}`)
 })
+
 
