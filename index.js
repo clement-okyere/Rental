@@ -14,10 +14,11 @@ const auth = require('./routes/auth');
 const error = require('./middleware/error')
 
 
-process.on('uncaughtException', (err) => {
-  console.log('WE GOT AN UNCAUGHT EXCEPTION')
+process.on('unhandledRejection', (err) => {
+  throw err;
 })
 
+winston.handleExceptions(new winston.transports.file({filename: 'uncaughtExceptions.log'}))
 winston.add(winston.transports.File, { filename: 'logfile.log' })
 winston.add(winston.transports.MongoDB,
   {
@@ -25,6 +26,7 @@ winston.add(winston.transports.MongoDB,
     level: 'error'
   }
 )
+
 
 if (!config.get('jwtPrivateKey')) {
   console.error('FATAL ERROR jwtPrivateKey is not defined')
