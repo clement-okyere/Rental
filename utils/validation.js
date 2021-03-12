@@ -27,7 +27,7 @@ const customerSchema = Joi.object({
 })
 
 const genreSchema  = Joi.object({
-        name: Joi.string().min(3).required()
+        name: Joi.string().min(5).required().max(50)
 })
     
 const movieSchema = Joi.object({
