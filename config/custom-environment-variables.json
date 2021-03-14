@@ -1,4 +1,4 @@
 {
-    "jwtPrivateKey": "",
+    "jwtPrivateKey": "jwtPrivateKey",
     "db": "mongodb://localhost/playground"
 }

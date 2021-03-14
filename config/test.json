@@ -1,4 +1,4 @@
 {
-    "jwtPrivateKey": "mySecurePrivateKey",
+    "jwtPrivateKey": "",
     "db": "mongodb://localhost/rentals_test"
 }
