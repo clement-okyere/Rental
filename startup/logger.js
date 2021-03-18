@@ -1,5 +1,6 @@
 require('winston-mongodb')
 const winston = require('winston')
+const config = require('config')
 
 module.exports = function () {
 
@@ -16,7 +17,7 @@ module.exports = function () {
     winston.add(winston.transports.File, { filename: 'logfile.log' })
     winston.add(winston.transports.MongoDB,
         {
-            db: 'mongodb://localhost/playground',
+            db: config.get("db"),
             level: 'error'
         }
     )

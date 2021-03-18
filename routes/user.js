@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const { userSchema, loginSchema ,validate } = require('../utils/validation')
 const { User } = require('../db/models/user')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 
 
