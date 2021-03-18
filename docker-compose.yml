@@ -9,6 +9,16 @@ services:
       - .:/app
     ports:
       - "3000:3000"
+    depends_on:
+      - db
     environment:
-    - db=${db}
+    - db=mongodb://db/playground
     - jwtPrivateKey=${jwtPrivateKey}
+  db:
+    image: mongo:4.1.8-xenial
+    volumes: 
+      - dbdata:/data/db
+
+
+volumes:
+  dbdata:
