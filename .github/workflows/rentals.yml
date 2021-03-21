@@ -1,0 +1,14 @@
+name: rentals-workflow
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build Project
+        uses: actions/setup-node@v1
+      - run: npm install ci
+      - run: npm run lintFix
+      
